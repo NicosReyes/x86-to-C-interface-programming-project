@@ -29,7 +29,7 @@ section .data
     clocks_per_sec  dq 1000000.0
     diff_threshold  dd 0.001
 
-    powers          dq 20, 24, 29
+    powers          dq 20, 24, 28
     num_powers      dq 3
 
 section .bss
