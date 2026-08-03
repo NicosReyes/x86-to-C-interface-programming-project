@@ -1,0 +1,4 @@
+^C:\USERS\NICOS\ONEDRIVE\CODING\AA LBYARCH\LBYARCH FIN\LBYARCH_PROJECT\ASM_KERNEL.ASM
+"C:\Program Files (x86)\SASM\NASM\nasm.exe" -f win64 ..\asm_kernel.asm -o x64\Debug\asm_kernel.obj
+^C:\USERS\NICOS\ONEDRIVE\CODING\AA LBYARCH\LBYARCH FIN\LBYARCH_PROJECT\MAIN.ASM
+"C:\Program Files (x86)\SASM\NASM\nasm.exe" -f win64 ..\main.asm -o x64\Debug\main.obj

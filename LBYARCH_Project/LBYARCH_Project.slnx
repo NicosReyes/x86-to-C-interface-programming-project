@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="LBYARCH_Project/LBYARCH_Project.vcxproj" />
+</Solution>
