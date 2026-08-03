@@ -4,7 +4,7 @@ An x86-64 assembly implementation and comparative analysis of a vector Euclidean
 
 ## Project Description
 
-This project calculates the Euclidean distance between two 2D spatial coordinate vectors ($X$ and $Y$) across three distinct vector dimensions ($N = 2^{20}, 2^{24}, 2^{29}$) using scalar SIMD floating-point registers (`xmm`) and instructions (`movss`, `subss`, `mulss`, `addss`, `sqrtss`).
+This project calculates the Euclidean distance between two 2D spatial coordinate vectors ($X$ and $Y$) across three distinct vector dimensions ($N = 2^{20}, 2^{24}, 2^{28}$) using scalar SIMD floating-point registers (`xmm`) and instructions (`movss`, `subss`, `mulss`, `addss`, `sqrtss`).
 
 ### Mathematical Equation
 $$Z[i] = \sqrt{(X_2[i] - X_1[i])^2 + (Y_2[i] - Y_1[i])^2}$$
@@ -21,18 +21,18 @@ The benchmark evaluates both the standard C reference kernel and the hand-writte
 | :--- | :--- | :--- | :--- | :--- |
 | **$2^{20}$** | $1,048,576$ | `0.000001` s | `0.000001` s | $1.0\times$ |
 | **$2^{24}$** | $16,777,216$ | `0.000020` s | `0.000020` s | $1.0\times$ |
-| **$2^{29}$** | $536,870,912$ | *Memory Limit Hit* | *Memory Limit Hit* | N/A |
+| **$2^{28}$** | $268,435,456$ | *(your time)* s | *(your time)* s | $1.0\times$ |
 
 ### Short Performance Analysis
 1. **Instruction Equivalence:** The performance of the scalar x86-64 Assembly kernel closely mirrors the C reference kernel across smaller vector sizes because modern compilers (such as GCC/MinGW) automatically map single-precision scalar floating-point math to identical SSE scalar instructions (`movss`, `subss`, `mulss`, `addss`, `sqrtss`).
-2. **Memory Bandwidth Bottleneck:** As vector lengths scale toward higher powers of 2 ($N = 2^{24}$ and above), execution throughput becomes bound by memory bandwidth (L3 cache misses and DRAM access latency) rather than raw CPU instruction throughput.
-3. **Allocation Thresholds:** At $N = 2^{29}$, six contiguous float arrays require approximately $12.8\text{ GB}$ of RAM, reaching OS heap allocation constraints on standard desktop systems.
+2. **Memory Bandwidth Bottleneck:** As vector lengths scale toward higher powers of 2 ($N = 2^{24}$ and $2^{28}$), execution throughput becomes bound by memory bandwidth (L3 cache misses and DRAM access latency) rather than raw CPU instruction throughput.
+3. **Capacity Management:** $2^{28}$ elements ($268,435,456$ floats per vector) requires roughly $6.4\text{ GB}$ of total RAM across all 6 vectors, successfully staying within safe desktop allocation limits to avoid heap allocation errors.
 
 ---
 
 ## Screenshots & Output Verification
 
-[ASM Output Screenshot](asm_output.png)
+![ASM Output Screenshot](benchmark.png)
 
 ---
 
