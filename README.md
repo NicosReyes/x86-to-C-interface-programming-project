@@ -19,9 +19,9 @@ The benchmark evaluates both the standard C reference kernel and the hand-writte
 
 | Vector Size ($N$) | Number of Elements | C Kernel Avg Time (s) | x86-64 ASM Kernel Avg Time (s) | Performance Ratio |
 | :--- | :--- | :--- | :--- | :--- |
-| **$2^{20}$** | $1,048,576$ | `0.000001` s | `0.000001` s | $1.0\times$ |
-| **$2^{24}$** | $16,777,216$ | `0.000020` s | `0.000020` s | $1.0\times$ |
-| **$2^{28}$** | $268,435,456$ | *(your time)* s | *(your time)* s | $1.0\times$ |
+| **$2^{20}$** | $1,048,576$ | `0.000001` s | `0.000001` s | $1.00\times$ |
+| **$2^{24}$** | $16,777,216$ | `0.000019` s | `0.000019` s | $1.00\times$ |
+| **$2^{28}$** | $268,435,456$ | `0.000314` s | `0.000327` s | $0.96\times$ |
 
 ### Short Performance Analysis
 1. **Instruction Equivalence:** The performance of the scalar x86-64 Assembly kernel closely mirrors the C reference kernel across smaller vector sizes because modern compilers (such as GCC/MinGW) automatically map single-precision scalar floating-point math to identical SSE scalar instructions (`movss`, `subss`, `mulss`, `addss`, `sqrtss`).
