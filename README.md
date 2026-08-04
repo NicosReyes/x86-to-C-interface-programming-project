@@ -38,8 +38,7 @@ The benchmark evaluates both the standard C reference kernel and the hand-writte
 
 ## Presentation Video
 
-* **Video Link:** [Insert Your Unlisted YouTube / Google Drive Video Link Here]
-* **Description:** A 5–10 minute demonstration walking through the NASM assembly implementation, scalar SIMD instruction set usage, compilation pipeline, and live execution.
+* **Video Link:** https://drive.google.com/file/d/1DG_dUaknRWN3eHwfB2O9zUJZL0HEmuFS/view?usp=sharing
 
 ---
 
